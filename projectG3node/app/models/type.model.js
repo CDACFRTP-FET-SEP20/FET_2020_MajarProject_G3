@@ -5,10 +5,10 @@ module.exports = (sequelize, Sequelize) => {
       }
       
     },
+    
     {
-      timestamps:false,
-      underscored:true
-    });
+      timestamps: false
+  });
   
     return Type;
   };

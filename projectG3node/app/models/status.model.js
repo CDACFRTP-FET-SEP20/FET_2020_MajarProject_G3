@@ -3,34 +3,38 @@ module.exports = (sequelize, Sequelize) => {
         userans: {
             type: Sequelize.STRING
           },
+          questatus: {
+            type: Sequelize.BOOLEAN
+          },
 
           remainingtime: {
             type: Sequelize.TIME
-          },
+          }
+    //       ,
       
-      questionid :{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-        references:{
-            model:'questions',
-            key:'id'
-        }
+    //   questionid :{
+    //     type:Sequelize.INTEGER,
+    //     allowNull:false,
+    //     references:{
+    //         model:'questions',
+    //         key:'id'
+    //     }
+    // },
+    // userid :{
+    //     type:Sequelize.INTEGER,
+    //     allowNull:false,
+    //     references:{
+    //         model:'users',
+    //         key:'id'
+    //     }
+    // }
+      
+      
     },
-    userid :{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-        references:{
-            model:'users',
-            key:'id'
-        }
-    }
-      
-      
-    },
+    
     {
-        timestamps:false,
-        underscored:true
-      });
+      timestamps: false
+  });
   
     return Status;
   };

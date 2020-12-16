@@ -2,28 +2,30 @@ module.exports = (sequelize, Sequelize) => {
     const Quize = sequelize.define("quize", {
       quizname: {
         type: Sequelize.STRING,
-        unique: true
+	unique:true
       },
       time: {
         type: Sequelize.TIME
       },
       count:{
         type: Sequelize.INTEGER
-      },
-      categoryid :{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-        references:{
-            model:'categories',
-            key:'id'
-        }
-    }
+      }
+    //   ,
+    //   categoryid :{
+    //     type:Sequelize.INTEGER,
+    //     allowNull:false,
+    //     references:{
+    //         model:'categories',
+    //         key:'id'
+    //     }
+    // }
+      
       
     },
+    
     {
-      timestamps:false,
-      underscored:true
-    });
+      timestamps: false
+  });
   
     return Quize;
   };

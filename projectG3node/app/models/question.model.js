@@ -17,31 +17,33 @@ module.exports = (sequelize, Sequelize) => {
       },
       answer: {
         type: Sequelize.STRING
-      },
+      }
+      // ,
     
-      quizid :{
-        type:Sequelize.INTEGER,
-        field: 'quizid',
-        references:{
-            model: 'quizes',
-            key: 'id'
-        }
+      //   quizid :{
+      //       type:Sequelize.INTEGER,
+      //       allowNull:false,
+      //       references:{
+      //           model: 'quizes',
+      //           key: 'id'
+      //       }
+      //   },
+      //   typeid :{
+      //       type:Sequelize.INTEGER,
+      //       allowNull:false,
+      //       references:{
+      //           model: 'types',
+      //           key: 'id'
+      //       }
+        // }
+        
+      
+      
     },
     
-    typeid :{
-        type:Sequelize.INTEGER,
-        field: 'typeid',
-        references:{
-            model: 'types',
-            key: 'id'
-        }
-        } 
-    },
     {
-      timestamps:false,
-      underscored:true
-    }
-    );
+      timestamps: false
+  });
   
     return Question;
   };

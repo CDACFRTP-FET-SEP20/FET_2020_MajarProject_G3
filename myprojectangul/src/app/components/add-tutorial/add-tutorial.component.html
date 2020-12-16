@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3>Add quiz</h3>
+        </div>
+        <div class="card-body">
+          <div *ngIf="!submitted">
+            <form #addQuestionForm="ngForm">
+              <div class="form-group">
+                <label for="quizname">quizname</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="quizname"
+                  placeholder="quizname"
+                  required
+                  [(ngModel)]="quiz.quizname"
+                  name="quizname"
+                  #quizname="ngModel"
+                />
+                <div
+                  [hidden]="quizname.valid || quizname.pristine"
+                  class="alert alert-danger"
+                >
+                  quizname is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="time">time</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="time"
+                  placeholder="time"
+                  required
+                  [(ngModel)]="quiz.time"
+                  name="time"
+                  #time="ngModel"
+                />
+                <!-- <time datetime="quiz.time" [(ngModel)]="quiz.time"  #time="ngModel"></time> -->
+                <div
+                  [hidden]="time.valid || time.pristine"
+                  class="alert alert-danger"
+                >
+                  time is required
+                </div>
+              </div>
+
+              <!-- <div class="form-group">
+                <label for="count">count</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="count"
+                  placeholder="count"
+                  required
+                  [(ngModel)]="quiz.count"
+                  name="count"
+                  #count="ngModel"
+                />
+                <div
+                  [hidden]="count.valid || count.pristine"
+                  class="alert alert-danger"
+                >
+                  count is required
+                </div>
+              </div> -->
+
+              <div class="form-group">
+                <label for="category">Category Name</label>
+                <select
+                  name="category"
+                  class="form-control"
+                  [(ngModel)]="quiz.category"
+                >
+                  <option *ngFor="let i of category" value="{{ i.category }}">
+                    {{ i.category }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="btn-group btn-group-sm">
+                <button
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="addQuize(quiz)"
+                  [disabled]="!addQuestionForm.form.valid"
+                >
+                  Add
+                </button>
+                <!-- <button
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="create(quiz.quizname)"
+                  
+                >
+                  create
+                </button> -->
+              </div>
+            </form>
+          </div>
+          <!-- <div *ngIf="submitted">
+            <div>
+              <app-questions [quizname]="quiz.quizname"></app-questions>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
