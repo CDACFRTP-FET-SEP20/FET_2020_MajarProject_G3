@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -12,7 +13,7 @@ export class CategoryComponent implements OnInit {
   categories?: Category[];
   currentTutorial?: Category;
   currentIndex = -1;
-  constructor(private categoryservice: CategoryService) {}
+  constructor(private categoryservice: CategoryService, private router: Router,) {}
 
   ngOnInit(): void {
     this.retrieveCategories();
@@ -27,6 +28,7 @@ export class CategoryComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        // this.router.navigate(['/dashboard']);
       }
     );
   }

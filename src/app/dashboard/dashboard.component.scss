@@ -1,13 +1,31 @@
-.row.content {height: 650px}
+.row.content {height:650px}
     
 /* Set gray background color and 100% height */
 .sidenav {
   background-color: #f1f1f1;
   height: 100%;
   widows: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+.text
+{
+  padding: 20px;
+  
+}
+.sidesection
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
     
 /* On small screens, set height to 'auto' for the grid */
 @media screen and (max-width: 767px) {
-  .row.content {height: auto;} 
+  .row.content {height: 100%;} 
 }
+
+
+// body{
+//   background-image:"img1.jpg";
+// }

@@ -45,7 +45,7 @@ export class AddQuestionsComponent implements OnInit {
   }
 
   btnClick() {
-    this.router.navigate(["/categories"]);
+    this.router.navigate(["/dashboard"]);
   }
   
 

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-      <div class="col-md-8 mx-auto">
+      <div class="col-sm-8 ">
         <div class="card">
           <div class="card-header">
             <h3>Add quiz</h3>
@@ -40,7 +40,7 @@
                     name="time"
                     #time="ngModel"
                   />
-                  <!-- <time datetime="quiz.time" [(ngModel)]="quiz.time"  #time="ngModel"></time> -->
+                 
                   <div
                     [hidden]="time.valid || time.pristine"
                     class="alert alert-danger"
@@ -49,25 +49,6 @@
                   </div>
                 </div>
   
-                <!-- <div class="form-group">
-                  <label for="count">count</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="count"
-                    placeholder="count"
-                    required
-                    [(ngModel)]="quiz.count"
-                    name="count"
-                    #count="ngModel"
-                  />
-                  <div
-                    [hidden]="count.valid || count.pristine"
-                    class="alert alert-danger"
-                  >
-                    count is required
-                  </div>
-                </div> -->
   
                 <div class="form-group">
                   <label for="category">Category Name</label>
@@ -91,22 +72,11 @@
                   >
                     Add
                   </button>
-                  <!-- <button
-                    type="button"
-                    class="btn btn-dark"
-                    (click)="create(quiz.quizname)"
-                    
-                  >
-                    create
-                  </button> -->
+                
                 </div>
               </form>
             </div>
-            <!-- <div *ngIf="submitted">
-              <div>
-                <app-questions [quizname]="quiz.quizname"></app-questions>
-              </div>
-            </div> -->
+       
           </div>
         </div>
       </div>

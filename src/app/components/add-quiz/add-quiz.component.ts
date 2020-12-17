@@ -54,7 +54,7 @@ export class AddQuizComponent implements OnInit {
       }
    
       console.log(id)
-      this.router.navigate(['/question/'+id.quizname])
+      this.router.navigate(['/dashboard/question/'+id.quizname])
     })
   }
 
