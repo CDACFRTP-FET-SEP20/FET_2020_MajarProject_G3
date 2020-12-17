@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/user';
 import { LoginServicesService } from 'src/app/login-services.service';
-import { Router } from '@angular/router';
-import {AuthServiceService} from '../../auth-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthServiceService } from '../../auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,46 +11,50 @@ import {AuthServiceService} from '../../auth-service.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm : any;
-  title : string = "Login Here";
-  model : any;
-  userData : any;
-  constructor(private fb : FormBuilder,
-    private loginService : LoginServicesService,
-    private router : Router,
-    private auth : AuthServiceService) { }
+  // @Output()
+  // isLogin : EventEmitter<boolean>= new EventEmitter<boolean>();
+  login: boolean = true;
+  loginForm: any;
+  title: string = "Login Here";
+  model: any;
+  userData: any;
+  msg = "";
+  constructor(private fb: FormBuilder,
+    private loginService: LoginServicesService,
+    private router: Router,
+    private auth: AuthServiceService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.createForm();
-    
+
   }
   createForm() {
-    this.loginForm  = this.fb.group({
+    this.loginForm = this.fb.group({
       password: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]]
-     })
+    })
   }
 
   get f() { return this.loginForm.controls }
-  signIn()
-  {
-    if(this.loginForm.valid)
-    {
-    this.model = this.loginForm.value;
-    this.loginService.loginUser(this.model).subscribe((data:any)=>
-    
-    {
-      sessionStorage.setItem('token',JSON.stringify(data));
-      // sessionStorage['isLogin']=true;
-      this.auth.Login();
-      this.router.navigate(['/dashboard']);
+  signIn() {
+    if (this.loginForm.valid) {
+      this.model = this.loginForm.value;
+      this.loginService.loginUser(this.model).subscribe((data: any) => {
+        sessionStorage.setItem('token', JSON.stringify(data));
+        this.auth.Login();
+        this.router.navigate(['/dashboard']);
+        
+        setTimeout(() => {
+          window.location.reload()
+        }, 10);
+      }
+        , (err: any) => {
+
+          this.msg = "Invalid EmailID or Password";
+          // alert("Invalid EmailID or Password");
+          // this.router.navigate(['/login']);
+        });
+    }
   }
-  ,(err:any)=>{
-   
-   
-    alert("Invalid EmailID or Password");
-    this.router.navigate(['/login']);
-  });
-  }
- }
 }

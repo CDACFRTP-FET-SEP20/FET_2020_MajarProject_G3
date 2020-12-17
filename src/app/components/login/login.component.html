@@ -18,25 +18,10 @@
                                     <div *ngIf="f.email.hasError('email')">Enter valid email address.</div>
                                 </small>
                             </div>
+                           
                         </div>
                     </div>
                    
-
-<!--    User Name
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col-md-3">
-                                <label>Username <span class="error">*</span></label>
-                            </div>
-                            <div class="col-md-9">
-                                <input formControlName="username" class="form-control" />
-                                <small class="error" *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
-                                    <div *ngIf="f.username.hasError('required')">This field is required.</div>
-                                    <div *ngIf="f.username.hasError('pattern')">Only alphanumeric is allowed.</div>
-                                </small>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-4">
@@ -47,11 +32,14 @@
                                 <small class="error alert-danger" *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
                                     <div *ngIf="f.password.hasError('required')">This field is required.</div>
                                 </small>
+                                <span class="form-group text-centre" style="color:tomato">
+                                    {{msg}}
+                                  </span>
                             </div>
                         </div>
                     </div>
                     
-                    
+                   
                   
                     <div class="form-group">
                         <div class="form-row">

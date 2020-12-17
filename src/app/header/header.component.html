@@ -15,23 +15,28 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Home</a>
         </li>
+        <li class="nav-item">
+          <a routerLink="/categories" class="nav-link">Category</a>
+        </li>
+    
+        <li class="nav-item">
+          <a routerLink="/add" class="nav-link">Create quiz</a>
+        </li>
          <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/aboutUs">About Us</a>
          </li> 
          <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/contact">Contact Us</a>
          </li> 
-         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/team">Our Team</a>
-         </li> 
-         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/signUp">Registration</a>
+      
+         <li class="nav-item" [hidden]='isLogin'>
+          <a class="nav-link" href="#" routerLink="/signUp" >Registration</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [hidden]='isLogin'>
         <a class="nav-link" href="#" routerLink="/login">Login</a>
        </li> 
-         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="logout()">Logout</a>
+         <li class="nav-item" [hidden]='!isLogin'>
+          <a class="nav-link" href="#" (click)="logout()" >Logout</a>
          </li>  
       </ul>
     </div>

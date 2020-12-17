@@ -11,23 +11,25 @@
                
           
 
-        <div class="row">
+    <div class="row">
 
         <!--Grid column-->
         <div class="col-md-9 mb-md-0 mb-5">
             <!-- <form > -->
-                <div class="signup-form">
-                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="contactForm-form">
+                 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <!--Grid row-->
                 <div class="row">
 
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <label for="name" class="">Your name</label>
+                            <label for="name" class="">Your name<span class="error">*</span></label>
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input formControlName="fullName" class="form-control" placeholder="Enter your Full Name" maxlength="15"/>
-                            
+                            <small class="error" *ngIf="f.fullName.invalid && (f.fullName.dirty || f.fullName.touched)">
+                                <div *ngIf="f.fullName.hasError('required')">This field is required.</div>
+                            </small>
                         </div>
                     </div>
                     <!--Grid column-->
@@ -35,7 +37,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <label for="email" class="">Your email</label>
+                            <label for="email" class="">Your email<span class="error">*</span></label>
                             <!-- <input type="email"  required id="email" name="email" class="form-control"> -->
                             <input formControlName="email" class="form-control" placeholder="Enter email ID" />
                             <small class="error alert-danger" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
@@ -52,10 +54,13 @@
                 <!--Grid row-->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <label for="subject" class="">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control">
+                        <div class="md-form mb-2">
+                            <label for="subject" class="">Subject<span class="error">*</span></label>
                             
+                            <input formControlName="Subject" class="form-control" placeholder="Subject" />
+                            <small class="error" *ngIf="f.Subject.invalid && (f.Subject.dirty || f.Subject.touched)">
+                                <div *ngIf="f.Subject.hasError('required')">This field is required.</div>
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -68,43 +73,42 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <label for="message">Your message</label>
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            
+                            <label for="message">Your message<span class="error">*</span></label>
+                            <!-- <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea> -->
+                            <textarea formControlName="Message" class="form-control" placeholder="Your Message here !" maxlength="15"></textarea>
+                            <small class="error" *ngIf="f.Message.invalid && (f.Message.dirty || f.Message.touched)">
+                                <div *ngIf="f.Message.hasError('required')">This field is required.</div>
+                            </small>
                         </div>
 
                     </div>
                 </div>
-
+                <br>
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-4">
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary">Submit</button>
+                            <button type="submit" [disabled]="contactForm.invalid" class="btn btn-primary">Submit</button>
                         </div>
                         <div class="col-md-4">
-                            <button type="reset" class="btn btn-danger" [disabled]="signupForm.invalid">Reset</button>
+                            <button type="reset" class="btn btn-danger" [disabled]="contactForm.invalid">Reset</button>
                         </div>
                     </div>
                 </div>
                 <!--Grid row-->
             </form>
-
-        </div>
-            <!-- </form> -->
-                <bR>
-            <div class="text-center">
-                <!-- <input class="btn btn-primary" value="Send"> -->
-                <button class="btn btn-primary">Send</button>
             </div>
-            <div class="status"></div>
+            </div>
         </div>
+        
+            <!-- </form> -->
+           
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
+        <div class="col-md-10 text-center justify-content-center">
+            <ul class="list-unstyled mb-5">
                 <li><i class="fas fa-map-marker-alt fa-2x"></i>
                     <p><mat-icon> location_on</mat-icon> Pune, Maharashtra, India</p>
                 </li>
@@ -120,7 +124,7 @@
         </div>
         <!--Grid column-->
 
-    </div>
+    
 
 </section>
 <!--Section: Contact v.2-->

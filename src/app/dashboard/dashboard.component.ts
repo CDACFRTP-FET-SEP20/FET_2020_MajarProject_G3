@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServicesService } from '../login-services.service';
+import { async } from 'rxjs';
 
 
 @Component({
@@ -7,10 +8,11 @@ import { LoginServicesService } from '../login-services.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit 
+{
   userData : any;
   userDetails : any;
-  userRoleId :any;
+  userRoleId :number =0 ;
   name : any;
   constructor(private loginService : LoginServicesService) 
   {
@@ -28,21 +30,16 @@ export class DashboardComponent implements OnInit {
     this.userRoleId = this.userDetails.roleid;
     this.name = this.userDetails.name;
     // console.log("User Details stringify "+this.userData);
-    // console.log("User Details "+this.userDetails);
-  })
-  
-if( this.userRoleId == 2)
-{
-  console.log("welcome User");
-  // this.router.navigate(['']);    
-  var details = this.loginService.getLoginDetails();
-  console.log(JSON.parse(details.name));
-}
-else
-{
-  console.log("Welcome Admin");
-  // this.router.navigate(['']);    
-}
+    // console.log("User Details "+this.userDetails.roleid);
 
+  });
+ 
+ }
+
+ getLoginDetails()
+ {
+   
+     console.log(JSON.parse(this.loginService.getLoginDetails()).name);
+   
  }
 }

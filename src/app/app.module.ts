@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -18,6 +18,12 @@ import { OurteamComponent } from './ourteam/ourteam.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatIconModule} from '@angular/material/icon';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from './chart/chart.component';
+import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
+import { AddQuestionsComponent } from './components/add-questions/add-questions.component';
+import { CategoryComponent } from './components/category/category.component';
+import { DisplayQuizComponent } from './components/display-quiz/display-quiz.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ContactUsComponent,
     OurteamComponent,
     FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+      ChartComponent,
+      AddQuizComponent,
+      AddQuestionsComponent,
+      CategoryComponent,
+      DisplayQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +50,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

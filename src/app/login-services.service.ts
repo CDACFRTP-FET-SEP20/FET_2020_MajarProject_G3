@@ -12,14 +12,15 @@ export class LoginServicesService {
 
   getLoginDetails()
   {
+    console.log(JSON.parse(JSON.stringify(this.logindetails)));
     return this.logindetails;
   }
 
   loginUser(loginDetails : any ):Observable<any[]>
   {
     
-  return  this._http.post<any[]>("http://localhost:8080/api/user/login",loginDetails);
-    
+  this.logindetails =   this._http.post<any[]>("http://localhost:8080/api/user/login",loginDetails);
+    return this.logindetails;
   }
 
 
