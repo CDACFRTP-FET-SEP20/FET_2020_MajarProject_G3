@@ -1,0 +1,21 @@
+
+  <div *ngIf="maxScorer.maxscore" class="edit-form">
+    <h4>MaxScorer</h4>
+   
+    <label><strong>Name:  {{maxScorer.usersc?.username}}</strong></label>
+    <li class="list-group-item"
+    >
+    {{maxScorer.maxscore}}
+   
+  </li>
+    
+  </div> 
+  
+  <div *ngIf="!maxScorer.maxscore" class="edit-form">
+ 
+   
+    <label><strong>You are the first who will attempt this quize</strong></label>
+   
+    
+  </div> 
+
