@@ -1,4 +1,4 @@
-<div class="list row">
+<!-- <div class="list row">
     <div class="col-md-8">
     
       <div class="input-group mb-3">
@@ -37,6 +37,43 @@
   
       
     </div>
-   
+    -->
 <!-- <app-score-details></app-score-details>   -->
+<h1>Search Works!!</h1>
+<div class="list row">
+    <div class="col-md-4">
+    
+      <div class="input-group mb-3">
+        <!-- <input
+          type="text"
+          class="form-control"
+          placeholder="Search by quize title"
+          [(ngModel)]="quizname"
+        /> -->
+        <div class="input-group-append">
+         
+        </div>
+      </div>
+    </div>
  
+    <mat-search-bar placeholder="Search by quize title"
+    [(ngModel)]="quizname" ></mat-search-bar>
+  
+    <div class="col-md-2">
+      
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+         
+          *ngFor="let quize of quizes | listFilterPipe:quizname"
+          (click)="scoreRouting(quize.id)"
+          
+          >
+        
+          {{ quize.quizname }}
+        </li>
+        
+      </ul>
+  
+      
+    </div>

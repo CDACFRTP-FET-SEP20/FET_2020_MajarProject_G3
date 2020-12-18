@@ -23,7 +23,7 @@ export class SearchQuizComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-   // this.retrieveQuizes();
+    this.searchTitle();
   
   }
   scoreRouting(id:any):void{

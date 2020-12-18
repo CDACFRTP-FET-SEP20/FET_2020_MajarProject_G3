@@ -6,20 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScoreDetailsComponent } from './components/score-details/score-details.component';
 import { SearchQuizComponent } from './components/search-quiz/search-quiz.component';
-
+import { ListFilterPipePipe } from './list-filter-pipe.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 @NgModule({
   declarations: [
     AppComponent,
     
     ScoreDetailsComponent,
     SearchQuizComponent,
+    ListFilterPipePipe,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NgMatSearchBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
