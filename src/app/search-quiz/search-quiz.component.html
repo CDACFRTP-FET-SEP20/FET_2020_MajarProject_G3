@@ -1,0 +1,33 @@
+
+   <div class="col-sm-3">
+   </div>
+    <div class="col-sm-4 row">
+    <!-- <mat-search-bar placeholder="Search by quize title"
+    [(ngModel)]="quizname" ></mat-search-bar> -->
+    
+        <div class="md-form">
+            <input type="search" [(ngModel)]="quizname" placeholder="Search text">
+          </div>
+        
+      
+    </div>
+
+    
+   <br>    
+   <div class="col-sm-4 row" *ngIf = "quizname!=''">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+         
+          *ngFor="let quize of quizes | search:quizname"
+          
+          >
+        
+          {{ quize.quizname }}
+        </li>
+        
+      </ul>
+    </div>
+  
+    
+<!-- </div> -->

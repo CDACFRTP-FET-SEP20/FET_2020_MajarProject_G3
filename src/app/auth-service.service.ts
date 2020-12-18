@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-
-  UserData: any;
+   public isUserLoggedIn: Subject<any> = new Subject();
+  UserData: any;  
   constructor(public router: Router) { }
+
+  getLoginStatus() {
+    console.log(this.isUserLoggedIn.asObservable());
+    return this.isUserLoggedIn.asObservable();
+  }
+
+  setLoginStatus(status: any)
+  {
+    console.log(status);
+    this.isUserLoggedIn.next(status);
+  }
 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

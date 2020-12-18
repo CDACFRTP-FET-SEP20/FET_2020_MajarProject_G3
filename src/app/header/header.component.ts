@@ -7,32 +7,25 @@ import { AuthServiceService } from '../auth-service.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit,OnDestroy,OnChanges {
+export class HeaderComponent implements OnInit {
   navbarOpen = false;
-  isLogin : boolean = sessionStorage.getItem('isLoggedIn')?true : false ;
+  isLogin :boolean = sessionStorage.getItem("isLoggedIn")?true : false;
 
   constructor(private router : Router,
     private authService : AuthServiceService) 
     {
-        
+      
 
     }
-  ngOnChanges(changes: import("@angular/core").SimpleChanges): void 
-  {
-    console.log("Out of header")
-    throw new Error("Method not implemented.");
-  }
-
 
   ngOnInit(): void 
   {
- 
+    this.authService.getLoginStatus().subscribe(value =>{
+      console.log(value);
+      this.isLogin = value;
+    })
   }
-  ngOnDestroy():void
-  {
-    console.log("Out of header")
-    this.isLogin = false;
-  }
+  
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
@@ -40,7 +33,7 @@ export class HeaderComponent implements OnInit,OnDestroy,OnChanges {
   logout(){
     delete sessionStorage['token'];
     delete sessionStorage['isLoggedIn'];
-    this.isLogin = false;
+    this.authService.setLoginStatus(false);
     this.router.navigate(['/home']);
 }
 }

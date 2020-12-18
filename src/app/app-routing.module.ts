@@ -15,6 +15,12 @@ import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
 import { DisplayQuizComponent } from './components/display-quiz/display-quiz.component';
 import { CategoryComponent } from './components/category/category.component';
 import { AddQuestionsComponent } from './components/add-questions/add-questions.component';
+import { IntermediateComponent } from './intermediate/intermediate.component';
+import { SpsComponent } from './components/games/sps/sps.component';
+import { NumberFormatStyle } from '@angular/common';
+import { NumberGuessComponent } from './components/games/number-guess/number-guess.component';
+import { SearchQuizComponent } from './search-quiz/search-quiz.component';
+import { PlanetComponent } from './planet/planet.component';
 const routes: Routes = [{path:'home',component : HomeComponent},
 {path:'signUp',component : RegistrationComponent},
 {path:'aboutUs',component: AboutUsComponent},
@@ -26,7 +32,11 @@ children:[
   {path:"categories",component: CategoryComponent},
   { path:'bt/:id',component:DisplayQuizComponent},
   { path: 'add', component: AddQuizComponent },
-  { path:'question/:quizname',component:AddQuestionsComponent}
+  { path:'question/:quizname',component:AddQuestionsComponent},
+  { path:'search',component:SearchQuizComponent},
+  {path:"games",component: IntermediateComponent},
+  {path:"sps",component: SpsComponent},
+  {path:"planet",component: PlanetComponent},
 ]},
 {path:'forgetpwd',component : UpdatePasswordComponent},
 {path:'chart',component : ChartComponent},

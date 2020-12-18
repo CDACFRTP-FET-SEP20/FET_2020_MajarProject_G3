@@ -12,7 +12,10 @@
                                 <label>E-Mail <span class="error">*</span></label>
                             </div>
                             <div class="col-md-8">
-                                <input formControlName="email" class="form-control" placeholder="Enter the Registered Email ID"/>
+                                <input 
+                                    formControlName="email" 
+                                    class="form-control" 
+                                    placeholder="Enter the Registered Email ID"/>
                                 <small class="error alert-danger" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
                                     <div *ngIf="f.email.hasError('required')">This field is required.</div>
                                     <div *ngIf="f.email.hasError('email')">Enter valid email address.</div>

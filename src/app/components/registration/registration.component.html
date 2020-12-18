@@ -11,7 +11,7 @@
                                 <label>Full Name <span class="error">*</span></label>
                             </div>
                             <div class="col-md-8">
-                                <input formControlName="fullName" class="form-control" placeholder="Enter your Full Name" maxlength="15"/>
+                                <input formControlName="fullName" class="form-control" placeholder="Enter your Full Name" maxlength="15" />
                                 <small class="error" *ngIf="f.fullName.invalid && (f.fullName.dirty || f.fullName.touched)">
                                     <div *ngIf="f.fullName.hasError('required')">This field is required.</div>
                                     <div *ngIf="f.password.errors.minlength">Name Should be atleast of 4 character.</div>
@@ -29,7 +29,7 @@
                                 <label>E-Mail <span class="error">*</span></label>
                             </div>
                             <div class="col-md-8">
-                                <input formControlName="email" class="form-control" placeholder="Enter email ID" />
+                                <input formControlName="email" class="form-control" placeholder="Enter email ID" (blur)="checkEmail($event)" />
                                 <small class="error alert-danger" *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
                                     <div *ngIf="f.email.hasError('required')">This field is required.</div>
                                     <div *ngIf="f.email.hasError('email')">Enter valid email address.</div>

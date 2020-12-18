@@ -11,8 +11,7 @@ import { AuthServiceService } from '../../auth-service.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  // @Output()
-  // isLogin : EventEmitter<boolean>= new EventEmitter<boolean>();
+  
   login: boolean = true;
   loginForm: any;
   title: string = "Login Here";
@@ -43,11 +42,14 @@ export class LoginComponent implements OnInit {
       this.loginService.loginUser(this.model).subscribe((data: any) => {
         sessionStorage.setItem('token', JSON.stringify(data));
         this.auth.Login();
+        this.auth.setLoginStatus(true);
         this.router.navigate(['/dashboard']);
         
-        setTimeout(() => {
-          window.location.reload()
-        }, 10);
+        // setTimeout(() => {
+        //   window.location.reload()
+        // }, 10);
+
+        
       }
         , (err: any) => {
 

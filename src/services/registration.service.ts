@@ -15,14 +15,16 @@ const httpOptionsPlain = {
 })
 export class RegistrationService 
 {
-
+  url : string  = "http://localhost:8080/api/user";
   constructor(private _http : HttpClient) { }
   signup(regObject  : any) : Observable<any[]>
   {
-    console.log(regObject);
-    console.log(this._http.post("http://localhost:8080/api/user",regObject));
-    
-    return this._http.post<any[]>("http://localhost:8080/api/user",regObject);
+
+    return this._http.post<any[]>(this.url,regObject);
   
+  }
+  checkEmail(mailId : any)
+  {
+    return this._http.post<any[]>("this.url",mailId);
   }
 }

@@ -39,7 +39,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   get f() { return this.signupForm.controls }
-
+  checkEmail(event:any)
+  {
+    
+    // this.regService.checkEmail(event.target.value).subscribe(()=>{});
+  }
   onSubmit() {
     this.model = this.signupForm.value;
     this.regService.signup(this.model).subscribe(

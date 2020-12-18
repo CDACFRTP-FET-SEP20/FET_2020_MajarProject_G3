@@ -24,7 +24,17 @@ import { AddQuizComponent } from './components/add-quiz/add-quiz.component';
 import { AddQuestionsComponent } from './components/add-questions/add-questions.component';
 import { CategoryComponent } from './components/category/category.component';
 import { DisplayQuizComponent } from './components/display-quiz/display-quiz.component';
-
+import { NumberGuessComponent } from './components/games/number-guess/number-guess.component';
+import { SpsComponent } from './components/games/sps/sps.component';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { IntermediateComponent } from './intermediate/intermediate.component';
+import { SearchQuizComponent } from './search-quiz/search-quiz.component';
+import { SearchPipe } from './search.pipe';
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import { PlanetComponent } from './planet/planet.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +52,15 @@ import { DisplayQuizComponent } from './components/display-quiz/display-quiz.com
       AddQuizComponent,
       AddQuestionsComponent,
       CategoryComponent,
-      DisplayQuizComponent
+      DisplayQuizComponent,
+      NumberGuessComponent,
+      SpsComponent,
+      IntermediateComponent,
+      SearchQuizComponent,
+      
+      SearchPipe,
+      
+      PlanetComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +70,12 @@ import { DisplayQuizComponent } from './components/display-quiz/display-quiz.com
     MatIconModule,
     BrowserAnimationsModule,
     ChartsModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    NgMatSearchBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
