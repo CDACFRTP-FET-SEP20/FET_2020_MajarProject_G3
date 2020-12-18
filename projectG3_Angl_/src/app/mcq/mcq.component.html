@@ -38,8 +38,9 @@
   </div>
   <br><br><br>
   <p>Time Remaining:{{hr}}:{{min}}:{{sec}}</p>
-  <ul class="list-group" *ngFor="let question of ques; let i = index " >
   
+  <ul class="list-group" *ngFor="let question of ques; let i = index " >
+    <input id="{{i}}" type="text"  (blur)="disable($event,i)" [disabled]="question.disabled? true:false" placeholder="{{question.answerByUser}}">
     
     <li class="card p-5" *ngIf="question.status"  > 
       <div >
@@ -60,6 +61,7 @@
       <div  class="radio">
         <label><input type="radio" *ngIf="question.userAns==question.option4"  checked value="4" name="optradio{{i}}"  disabled>{{question.option4}}</label>
       </div>
+      
       </div>
       </div>
     </div>

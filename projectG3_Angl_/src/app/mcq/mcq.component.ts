@@ -13,6 +13,7 @@ import { QuizTimerService } from '../quiz-timer.service';
   styleUrls: ['./mcq.component.scss']
 })
 export class McqComponent implements OnInit{
+  answer:string="";
   wrong1=false;
   wrong2=false;
   wrong3=false;
@@ -158,7 +159,7 @@ if(index==1 && option!=ans)
 if(index==2 && option!=ans)
 {
   this.ques[i]={...this.que[i],disable:true,userSelected:true,selectedOption:option,
-    wrong1:false,wrong2:false,wrong3:true,wrong4:false}
+    wrong1:false,wrong2:false,wrong3:true,wrong4:false,answerByUser:null}
 }else
 if(index==3 && option!=ans)
 {
@@ -226,6 +227,15 @@ if(index==3 && option!=ans)
 
 
 };
+
+disable(value:any,i:any)
+{
+   
+  console.log(value.target.value);
+  this.ques[i]={...this.que[i],disabled:true,answerByUser:value.target.value}
+  console.log("disabled");
+  
+}
 
 submitTest()
 {
