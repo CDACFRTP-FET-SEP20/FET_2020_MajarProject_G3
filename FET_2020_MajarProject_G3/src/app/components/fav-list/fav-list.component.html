@@ -6,7 +6,8 @@
     <div class="col-sm-4 colmn" *ngFor="let fav of favList">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title">{{fav.quizs && fav.quizs.quizname}}</h1>
+          <h1 class="card-title">
+            <a (click)="quizeRounting(fav.quizs.id)">{{fav.quizs && fav.quizs.quizname}}</a></h1>
           <button class="btn btn-primary"  (click)="removeFav(fav.quizeId)">Remove</button>
         </div>
       </div>

@@ -38,6 +38,8 @@ import { PlanetComponent } from './planet/planet.component';
 import { McqComponent,FormatTimePipe } from './components/mcq/mcq.component';
 import { FavListComponent } from './components/fav-list/fav-list.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { Game2048Component } from './components/games/game2048/game2048.component';
+import { QuizHistoryComponent } from './components/quiz-history/quiz-history.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +72,11 @@ import { UserListComponent } from './components/user-list/user-list.component';
       
       FavListComponent,
       
-      UserListComponent
+      UserListComponent,
+      
+      Game2048Component,
+      
+      QuizHistoryComponent
   ],
   imports: [
     BrowserModule,

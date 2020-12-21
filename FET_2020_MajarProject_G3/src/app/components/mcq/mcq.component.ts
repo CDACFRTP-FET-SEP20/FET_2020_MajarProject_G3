@@ -49,7 +49,7 @@ export class McqComponent implements OnInit,OnDestroy {
 
     this.activatedRoute.params.subscribe(quizId=>{
       this.quizeId=quizId['id'];
-      console.log("fgdsh",this.quizeId);
+      
       
   });
 
@@ -59,9 +59,10 @@ export class McqComponent implements OnInit,OnDestroy {
        this.userMail=this.user.email;
 
          // Status service
-       this.service.getStatusList(this.userId, this.quizeId).subscribe((res: any) => {
+       this.service.getStatusList(this.userId, this.quizeId).subscribe(
+        (res: any) => {
         this.mydata = res;
-        console.log(this.mydata+"gsdsegfehfgehjfg");
+      
         
         for (let i = 0; i < this.mydata.length; i++) {
           if (this.mydata[i].userans == this.mydata[i].userqu.answer) {
@@ -86,7 +87,7 @@ export class McqComponent implements OnInit,OnDestroy {
           
         },
         (error) => {
-          console.log(error);
+          
         }
       ); 
    
@@ -115,7 +116,7 @@ export class McqComponent implements OnInit,OnDestroy {
             if (!this.favData) 
              {
               this.addtoFavserv.insertFav(fav).subscribe((res) => {
-                console.log(res);  });
+                 });
 
              }
 
@@ -126,20 +127,20 @@ export class McqComponent implements OnInit,OnDestroy {
                 "status": true
             }
             
-              this.addtoFavserv.updateFav(this.favData.id, updateStatus).subscribe((res: any) => { alert(res); });
+              this.addtoFavserv.updateFav(this.favData.id, updateStatus).subscribe((res: any) => {  });
 
             }
           
         }
         else 
         {
-            alert("inside else " + this.favData.id);
+            
             let updateStatus = { 
                 "userId":fav.userid, 
                  "status": false
                  }
             this.addtoFavserv.updateFav(this.favData.id, updateStatus).subscribe((res: any) => {
-                alert(res);
+                
             });
           
         }
@@ -161,7 +162,7 @@ export class McqComponent implements OnInit,OnDestroy {
 setInterval(){
 
   this.updateinterval = setInterval(() => {
-    console.log("interval");
+    
     
         let status_timerUpdate = {
           remainingtime: this.counter,
@@ -214,12 +215,12 @@ setInterval(){
               break;
             } else {
               this.ques[i] = { ...this.que[i], status: false };
-              console.log('else in', this.ques[i], i, j);
+              
             }
           }
         } else {
           this.ques[i] = { ...this.que[i], status: false };
-          console.log('else in 2', this.ques[i]);
+          
         }
       }
     });
@@ -309,7 +310,7 @@ setInterval(){
     };
 
     this.service.insertstatus(status).subscribe((res: any) => {
-      console.log(res);
+      
       if(this.updateinterval)
       {
       }
@@ -334,7 +335,7 @@ setInterval(){
     };
     questionanswer == value ? (this.score += 1) : this.score;
     this.service.insertstatus(status).subscribe((res: any) => {
-      console.log(res);
+      
       if(this.updateinterval)
       {
  
@@ -375,7 +376,7 @@ setInterval(){
       console.log(res);
       
     })
-  //  this.router.navigate(['/fav']);
+  
   }
   ngOnDestroy():void{
     this.countDown.unsubscribe();

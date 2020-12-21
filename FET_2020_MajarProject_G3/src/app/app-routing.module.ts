@@ -24,12 +24,15 @@ import { PlanetComponent } from './planet/planet.component';
 import { McqComponent } from './components/mcq/mcq.component';
 import { FavListComponent } from './components/fav-list/fav-list.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { Game2048Component } from './components/games/game2048/game2048.component';
+import { QuizHistoryComponent } from './components/quiz-history/quiz-history.component';
 const routes: Routes = [{path:'home',component : HomeComponent},
 {path:'signUp',component : RegistrationComponent},
 {path:'aboutUs',component: AboutUsComponent},
 {path:'login',component: LoginComponent},
 {path:'contact',component : ContactUsComponent},
 { path:'abc/:id',component:AppComponent},
+{path:'planet',component: PlanetComponent ,canActivate: [AuthServiceService]},
 {path:'dashboard',component : DashboardComponent,canActivate: [AuthServiceService],
 children:[
   {path:"categories",component: CategoryComponent},
@@ -39,11 +42,12 @@ children:[
   { path:'search',component:SearchQuizComponent},
   {path:"games",component: IntermediateComponent},
   {path:"sps",component: SpsComponent},
-  {path:"planet",component: PlanetComponent},
+  {path:"2048",component: Game2048Component},
   {path:"mcqPage/:id",component: McqComponent},
   {path:"favList",component: FavListComponent},
   {path:'chart',component : ChartComponent},
-  {path:'users',component : UserListComponent}
+  {path:'users',component : UserListComponent},
+  {path:"History",component: QuizHistoryComponent}
 ]},
 {path:'forgetpwd',component : UpdatePasswordComponent},
 

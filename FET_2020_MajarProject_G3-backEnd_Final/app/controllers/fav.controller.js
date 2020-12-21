@@ -24,11 +24,12 @@ exports.findOne = (req, res) => {
 
 // Update a Favourite by the userId and QuizeId in the request
 exports.update = (req, res) => {
-  console.log(res,"dfjsh")
+  
   const id = req.params.id;
   const updateedStatus = req.body.status;
   const userid = req.body.userId;
-
+ console.log(req.body,id);
+ 
   Favourite.update(
     { status: updateedStatus },
     { where: { quizeId: id, userId: userid } }

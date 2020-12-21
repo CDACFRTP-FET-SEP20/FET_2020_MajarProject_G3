@@ -67,16 +67,17 @@ export class SearchQuizComponent implements OnInit {
 
 
   toggleSelected(qid: any, i: any): void {
+    this.UpdatedQuiz[i].status = !this.UpdatedQuiz[i].status;
     this.addFavService.getFavListOfUser(this.userId).subscribe((res: any) => {
       this.favlistData = res;
       this.favListLength = res.length;
-      this.UpdatedQuiz[i].status=res.status;
+      // this.UpdatedQuiz[i].status=res.status;
 
 
     });
-console.log(qid);
-    this.UpdatedQuiz[i].status = !this.UpdatedQuiz[i].status;
-    debugger;
+
+   
+    
     let data = this.favlistData.find((item: { quizeId: any; }) => item.quizeId === qid);
 
 
@@ -95,7 +96,7 @@ console.log(qid);
       else 
       {
       
-        alert("else");
+        
         let updateStatus = {
           "status": true,
           "userId": this.userId
@@ -184,5 +185,11 @@ console.log(qid);
     }
   }
 
+//routing
+  quizeRounting(id:any)
+  {
+  
+  this.router.navigate(['/dashboard/mcqPage/'+id])
+  }
 
 }

@@ -15,6 +15,8 @@ window.onload = function () {
   spriteExplosion.src = 'https://res.cloudinary.com/dc4stsmlc/image/upload/v1570612478/Codepen/explosion_g9ncyg.png';
 };
 
+//To Reload the file
+setTimeout(game,2000);
 //Game
 function game() {
 

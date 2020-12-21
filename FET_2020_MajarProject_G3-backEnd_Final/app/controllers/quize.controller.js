@@ -32,14 +32,6 @@ exports.addQuize = (req, res) => {
     });
 };
 
-exports.getCategoryName = (req, res) => {
-  db.sequelize
-    .query("select * from categories", { type: db.sequelize.QueryTypes.SELECT })
-    .then((data) => {
-      res.send(data);
-      
-    });
-};
 
 
 exports.getQuize = (req, res) => {

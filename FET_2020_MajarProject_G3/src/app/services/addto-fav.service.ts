@@ -15,7 +15,7 @@ export class AddtoFavService {
     );
   }
   updateFav(id: any, status: any) {
-    console.log(status);
+    
 
     return this.http.put('http://localhost:8080/api/fav/' + id, status);
   }

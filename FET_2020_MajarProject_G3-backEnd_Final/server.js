@@ -32,6 +32,7 @@ require("./app/routes/score.routes")(app);
 require("./app/routes/chart.routes")(app);
 require("./app/routes/timer.routes")(app);
 require("./app/routes/maiulsender.route")(app);
+require("./app/routes/profile.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

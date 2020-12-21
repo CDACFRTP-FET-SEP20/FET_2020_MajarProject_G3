@@ -19,5 +19,8 @@ export class PlanetComponent implements OnInit {
     this.score = s;
     console.log(this.score);
   }
-
+  Start()
+  {
+    window.location.reload();
+  }
 }

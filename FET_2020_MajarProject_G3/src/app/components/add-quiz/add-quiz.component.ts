@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Quiz } from 'src/app/models/quiz.model';
 import { QuizService } from 'src/app/services/quiz.service';
 import { Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-add-quiz',
@@ -14,21 +15,29 @@ export class AddQuizComponent implements OnInit {
   quiz = new Quiz();
   category : any;
   submitted = false;
-  constructor(private tutorialService: QuizService,private router: Router) { }
+  constructor(private tutorialService: QuizService,private router: Router,
+    private categoryservice:CategoryService) { }
 
   
   ngOnInit(): void {
    
-    this.getCategoryName();
+   
+    this.retrieveCategories();
     
   }
-  getCategoryName() {
-    return this.tutorialService.getCategoryName()
-      .subscribe(
-        quiz =>{
-          this.category = quiz;
-          console.log( this.category);
-        } 
+  
+
+  
+  retrieveCategories(): void {
+    this.categoryservice.getAll().subscribe(
+      (data) => {
+        this.category = data;
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+        
+      }
     );
   }
 

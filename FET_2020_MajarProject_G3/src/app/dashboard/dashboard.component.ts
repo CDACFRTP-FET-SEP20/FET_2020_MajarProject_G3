@@ -36,6 +36,10 @@ export class DashboardComponent implements OnInit
     if(this.userRoleId==1){
       this.router.navigate(['/dashboard/chart'])
     }
+
+    if(this.userRoleId==2){
+      this.router.navigate(['/dashboard/categories'])
+    }
   });
  
  }

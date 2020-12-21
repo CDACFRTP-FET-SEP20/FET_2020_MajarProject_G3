@@ -29,7 +29,4 @@ export class QuizService {
     return this.http.post<Quiz>(this.baseUrl1, question, httpOptions);
   }
 
-  getCategoryName() {
-    return this.http.get("http://localhost:8080/api/quizes/getCategoryName");
-  }
 }

@@ -10,14 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DisplayQuizComponent implements OnInit {
 
   current: any = [];
-  // current: Tutorial = {
-  //   quizname: "",
-  //   time: "",
-  //   count: "",
-  //   category: "",
-  // };
 
-  // @Input categoryId: any;
 
   constructor(
     private tutorialService: QuizService,
@@ -31,7 +24,7 @@ export class DisplayQuizComponent implements OnInit {
 
   quizeRounting(id:any)
   {
-  console.log(id);
+  
   this.router.navigate(['/dashboard/mcqPage/'+id])
   }
   
