@@ -15,11 +15,11 @@
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let quize of UpdatedQuiz | search:quizname ; let i = index ">
 
-      {{ quize.quizname }} <button mat-icon-button (click)="toggleSelected(quize.id,i)">
-        <mat-icon *ngIf="quize.status" aria-label="Example icon-button with a heart icon">
+      {{ quize.quizname }} <button mat-icon-button (click)="toggleSelected(quize.id,i,quize.status)">
+        <mat-icon *ngIf="this.UpdatedQuiz[i].status" aria-label="Example icon-button with a heart icon">
           favorite
         </mat-icon>
-        <mat-icon *ngIf="!quize.status" aria-label="Example icon-button with a heart icon">
+        <mat-icon *ngIf="!this.UpdatedQuiz[i].status" aria-label="Example icon-button with a heart icon">
           favorite_border
         </mat-icon>
 
