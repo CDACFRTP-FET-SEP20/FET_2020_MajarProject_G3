@@ -75,17 +75,17 @@
         </div>
         <!--   (wrong? 'incorrect':'default') -->
         <div class="border p-3 m-3" >
-        <div  (click)="setAnswer(question.option1,question.id,question.answer,question,i)"  class="radio card-text border p-3 m-3" [ngClass]="question.userSelected? (question.option1==question.answer? 'correct':(question.wrong1? 'incorrect':'default')):'default'" >
-         <label   for="{{question.id}}1" id="{{question.id}}11"  ><input type="radio" id="{{question.id}}1" [disabled]="question.disable? true:false" [checked]="question.option1==question.selectedOption" value="1" name="optradio{{i}}"  >{{question.option1}}</label>
+        <div disabled (click)="setAnswer(question.option1,question.id,question.answer,question,i)"  class="radio card-text border p-3 m-3"  >
+         <label   for="{{question.id}}1" id="{{question.id}}11"  ><input type="radio" id="{{question.id}}1" [disabled]="question.disable? true:false" [checked]="question.option1==question.selectedOption" [ngClass]="question.userSelected? (question.option1==question.answer? 'correct':(question.wrong1? 'incorrect':'default')):'default'" value="1" name="optradio{{i}}"  >{{question.option1}}</label>
         </div>
-        <div (click)="setAnswer(question.option2,question.id,question.answer,question,i)" class="radio card-text border p-3 m-3" [ngClass]="question.userSelected? (question.option2==question.answer? 'correct':(question.wrong2? 'incorrect':'default')):'default'">
-          <label    for="{{question.id}}2" id="{{question.id}}22"  ><input type="radio" id="{{question.id}}2"  [disabled]="question.disable? true:false" [checked]="question.option2==question.selectedOption" value="2" name="optradio{{i}}"  >{{question.option2}}</label>
+        <div (click)="setAnswer(question.option2,question.id,question.answer,question,i)" class="radio card-text border p-3 m-3" >
+          <label    for="{{question.id}}2" id="{{question.id}}22"  ><input type="radio" id="{{question.id}}2"  [disabled]="question.disable? true:false" [ngClass]="question.userSelected? (question.option2==question.answer? 'correct':(question.wrong2? 'incorrect':'default')):'default'" [checked]="question.option2==question.selectedOption" value="2" name="optradio{{i}}"  >{{question.option2}}</label>
         </div>
-        <div (click)="setAnswer(question.option3,question.id,question.answer,question,i)" class="radio card-text border p-3 m-3" [ngClass]="question.userSelected? (question.option3==question.answer? 'correct':(question.wrong3? 'incorrect':'default')):'default'">
-          <label    for="{{question.id}}3" id="{{question.id}}33" ><input type="radio" id="{{question.id}}3"  [disabled]="question.disable? true:false" [checked]="question.option3==question.selectedOption" value="3" name="optradio{{i}}" >{{question.option3}}</label>
+        <div (click)="setAnswer(question.option3,question.id,question.answer,question,i)" class="radio card-text border p-3 m-3" >
+          <label    for="{{question.id}}3" id="{{question.id}}33" ><input type="radio" id="{{question.id}}3"  [disabled]="question.disable? true:false" [ngClass]="question.userSelected? (question.option3==question.answer? 'correct':(question.wrong3? 'incorrect':'default')):'default'" [checked]="question.option3==question.selectedOption" value="3" name="optradio{{i}}" >{{question.option3}}</label>
         </div>
-        <div (click)="setAnswer(question.option4,question.id,question.answer,question,i)" class="radio card-text border p-3 m-3" [ngClass]="question.userSelected? (question.option4==question.answer? 'correct':(question.wrong4? 'incorrect':'default')):'default'">
-          <label    for="{{question.id}}4" id="{{question.id}}44"  > <input type="radio" id="{{question.id}}4" [disabled]="question.disable? true:false" [checked]="question.option4==question.selectedOption" value="3" name="optradio{{i}}" >{{question.option4}}</label>
+        <div (click)="setAnswer(question.option4,question.id,question.answer,question,i)" class="radio card-text border p-3 m-3" >
+          <label    for="{{question.id}}4" id="{{question.id}}44"  > <input type="radio" id="{{question.id}}4" [ngClass]="question.userSelected? (question.option4==question.answer? 'correct':(question.wrong4? 'incorrect':'default')):'default'" [disabled]="question.disable? true:false" [checked]="question.option4==question.selectedOption" value="3" name="optradio{{i}}" >{{question.option4}}</label>
         </div>
       </div>
       </div>

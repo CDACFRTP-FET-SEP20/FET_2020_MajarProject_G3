@@ -1,7 +1,12 @@
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, Sequelize,DataTypes) => {
     const Score= sequelize.define("score", {
       score: {
         type: Sequelize.INTEGER
+      },
+      submittedOn:{
+        type: Sequelize.DATEONLY ,
+        allowNull: false,
+        defaultValue: Sequelize.NOW
       }
       // ,  
       // userid :{
